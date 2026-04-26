@@ -12,7 +12,7 @@ class SignalRService {
     await this.connection.invoke('SendMessage', meetingId, message);
   }
   async startConnection() {
-    const url = process.env.REACT_APP_SIGNALR_URL || ' https://localhost:7000/meetingHub';
+    const url = process.env.REACT_APP_SIGNALR_URL || ' https://localhost:7013/meetingHub';
 
     this.connection = new signalR.HubConnectionBuilder()
       .withUrl(url, {

@@ -7,7 +7,7 @@ export const RecordingsList = ({ onBack }) => {
   const [meetingId, setMeetingId] = useState('');
   const [selectedRecording, setSelectedRecording] = useState(null);
 
-  const API_BASE_URL = 'https://localhost:7000/api';
+  const API_BASE_URL = 'https://localhost:7013/api';
 
   const fetchRecordings = async (id) => {
     if (!id) return;

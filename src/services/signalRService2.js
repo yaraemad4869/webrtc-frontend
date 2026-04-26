@@ -8,14 +8,12 @@ class SignalRService {
 
     async startConnection() {
         // Make sure to use the correct URL - check if your backend is running on a different port
-        const hubUrl = 'https://localhost:7000/meetingHub';
-
+        const baseUrl = 'https://localhost:7013';
         this.connection = new signalR.HubConnectionBuilder()
-            .withUrl(hubUrl, {
-                skipNegotiation: true,
+            .withUrl(`${baseUrl}/meetingHub`, {
                 transport: signalR.HttpTransportType.WebSockets
             })
-            .withAutomaticReconnect([0, 2000, 5000, 10000, 20000])
+            .withAutomaticReconnect()
             .configureLogging(signalR.LogLevel.Information)
             .build();
 
@@ -86,7 +84,7 @@ class SignalRService {
 
     async createMeeting(meetingName, userName) {
         try {
-            return await this.connection.invoke('CreateMeeting', meetingName, userName);
+            return await this.connection.invoke('CreateMeeting', meetingName/*, userName*/);
         } catch (error) {
             console.error('Error creating meeting:', error);
             throw error;
@@ -95,7 +93,7 @@ class SignalRService {
 
     async joinMeeting(meetingId, userName) {
         try {
-            return await this.connection.invoke('JoinMeeting', meetingId, userName);
+            return await this.connection.invoke('JoinMeeting', meetingId/*, userName*/);
         } catch (error) {
             console.error('Error joining meeting:', error);
             throw error;

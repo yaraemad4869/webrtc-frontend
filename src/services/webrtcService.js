@@ -160,7 +160,7 @@ class WebRTCService {
     formData.append('participantId', participantId);
 
     try {
-      const apiUrl = process.env.REACT_APP_API_URL || 'https://localhost:7000';
+      const apiUrl = process.env.REACT_APP_API_URL || 'https://localhost:7013';
       const response = await fetch(`${apiUrl}/api/recording/upload`, {
         method: 'POST',
         body: formData

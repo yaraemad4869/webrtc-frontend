@@ -9,12 +9,12 @@ export default defineConfig({
     open: true,
     proxy: {
       '/api': {
-        target: 'https://localhost:7000',
+        target: 'https://localhost:7013',
         changeOrigin: true,
         secure: false
       },
       '/meetingHub': {
-        target: 'https://localhost:7000',
+        target: 'https://localhost:7013',
         changeOrigin: true,
         secure: false,
         ws: true

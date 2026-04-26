@@ -385,7 +385,7 @@ class WebRTCService {
     formData.append('meetingId', meetingId);
 
     try {
-      const response = await fetch('https://localhost:7000/api/recordings/upload', {
+      const response = await fetch('https://localhost:7013/api/recordings/upload', {
         method: 'POST',
         body: formData
       });
@@ -407,23 +407,23 @@ class WebRTCService {
   // ==================== Recording Playback ====================
 
   getRecordingUrl(recordingId) {
-    return `https://localhost:7000/api/recordings/${recordingId}`;
+    return `https://localhost:7013/api/recordings/${recordingId}`;
   }
 
   getStreamUrl(recordingId) {
-    return `https://localhost:7000/api/recordings/stream/${recordingId}`;
+    return `https://localhost:7013/api/recordings/stream/${recordingId}`;
   }
 
   getHlsUrl(recordingId) {
-    return `https://localhost:7000/api/recordings/hls/${recordingId}`;
+    return `https://localhost:7013/api/recordings/hls/${recordingId}`;
   }
 
   getDownloadUrl(recordingId) {
-    return `https://localhost:7000/api/recordings/download/${recordingId}`;
+    return `https://localhost:7013/api/recordings/download/${recordingId}`;
   }
 
   getThumbnailUrl(recordingId) {
-    return `https://localhost:7000/api/recordings/thumbnail/${recordingId}`;
+    return `https://localhost:7013/api/recordings/thumbnail/${recordingId}`;
   }
 
   async streamRecording(recordingId, videoElement, options = {}) {

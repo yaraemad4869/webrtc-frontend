@@ -14,7 +14,7 @@ const RecordingPlayer = ({ recording, onBack }) => {
 
   const fetchMetadata = async () => {
     try {
-      const apiUrl = process.env.REACT_APP_API_URL || 'https://localhost:7000';
+      const apiUrl = process.env.REACT_APP_API_URL || 'https://localhost:7013';
       const response = await axios.get(`${apiUrl}/api/recording/${recording.id}/metadata`);
       setMetadata(response.data);
     } catch (err) {
@@ -29,7 +29,7 @@ const RecordingPlayer = ({ recording, onBack }) => {
     if (!window.confirm('Are you sure you want to delete this recording?')) return;
 
     try {
-      const apiUrl = process.env.REACT_APP_API_URL || 'https://localhost:7000';
+      const apiUrl = process.env.REACT_APP_API_URL || 'https://localhost:7013';
       await axios.delete(`${apiUrl}/api/recording/${recording.id}`);
       onBack();
     } catch (err) {
